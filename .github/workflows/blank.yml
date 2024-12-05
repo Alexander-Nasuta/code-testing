@@ -25,9 +25,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: hello world
+      - name: hello world red
         run: |
-          python -c "print('Hello World')"
+          python -c "print('\33[31m Hello World red')"
       - name: hello rainbow
         run: |
           python -c "print('\33[31m ███▌         ▟███▛▟███████▛▐███▌           ┃       ▐█▀▜▙█▙   ███████▐█ ▐█')"    
