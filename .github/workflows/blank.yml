@@ -1,0 +1,39 @@
+name: Test github workflows
+
+on:
+  push:
+    branches:
+      - "**"
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test-jsp-env:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: python
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: hello world
+        run: |
+          python -c "print('Hello World')"    
+      - name: hello world red
+        run: |
+          python -c "print('\33[31m Hello World')"    
+      - name: Install scikit-decide and test dependencies
+        run: |
+          pip install graph-jsp-env
+      - name: test importing it
+        run: |
+          python -c "from graph_jsp_env.disjunctive_graph_jsp_env import DisjunctiveGraphJspEnv"
