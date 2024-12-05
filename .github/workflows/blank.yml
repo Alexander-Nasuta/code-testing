@@ -19,7 +19,7 @@ jobs:
     runs-on: windows-latest
     defaults:
       run:
-        shell: python
+        shell: bash
     steps:
       - name: Set up Python
         uses: actions/setup-python@v5
