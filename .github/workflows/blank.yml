@@ -27,7 +27,7 @@ jobs:
           python-version: "3.12"
       - name: hello world
         run: |
-          python -c "print('Hello World')"    
+          python -c "print('Hello World')"
       - name: hello world red
         run: |
           python -c "print('\33[31m Hello World')"    
