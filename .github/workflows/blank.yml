@@ -1,4 +1,4 @@
-name: Test github workflows
+name: Test GitHub Workflows
 
 on:
   push:
@@ -25,15 +25,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: hello world red
+
+      - name: Set PYTHONIOENCODING to UTF-8
         run: |
-          python -c "print('\33[31m Hello World red')"
-      - name: hello rainbow
+          echo "PYTHONIOENCODING=UTF-8" >> $GITHUB_ENV
+
+      - name: Test 
         run: |
-          python -c "print('\33[31m ███▌         ▟███▛▟███████▛▐███▌           ┃       ▐█▀▜▙█▙   ███████▐█ ▐█')"    
-      - name: Install scikit-decide and test dependencies
-        run: |
-          pip install graph-jsp-env
-      - name: test importing it
-        run: |
-          python -c "from graph_jsp_env.disjunctive_graph_jsp_env import DisjunctiveGraphJspEnv"
+          python -c "print('\33[31m ███▌         ▟███▛▟███████▛▐███▌           ┃       ▐█▀▜▙█▙   ███████▐█ ▐█')"
